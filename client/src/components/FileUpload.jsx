@@ -38,7 +38,10 @@ export default function FileUpload({ onUploadComplete }) {
         } catch (err) {
             console.error(err);
             setFileStatus('error');
-            setErrorMessage(err.response?.data?.error || 'Upload failed');
+            const msg = err.response?.data?.error
+                || err.message
+                || JSON.stringify(err);
+            setErrorMessage(`Error: ${msg} (Target: ${api.defaults.baseURL})`);
         } finally {
             setIsUploading(false);
         }
