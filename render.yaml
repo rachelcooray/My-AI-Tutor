@@ -4,7 +4,7 @@ services:
     name: cima-tutor-api
     env: node
     rootDir: server
-    buildCommand: npm install
+    buildCommand: npm install --legacy-peer-deps
     startCommand: npm start
     envVars:
       - key: GEMINI_API_KEY
