@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Send, User, Bot, Sparkles } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import clsx from 'clsx';
 
 export default function ChatInterface({ subject, mode }) {

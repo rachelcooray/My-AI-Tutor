@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Upload, File, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import axios from 'axios';
+import api from '../api';
 import clsx from 'clsx';
 
 export default function FileUpload({ onUploadComplete }) {
