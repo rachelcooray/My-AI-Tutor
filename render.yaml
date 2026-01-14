@@ -1,0 +1,26 @@
+services:
+  # Backend Service
+  - type: web
+    name: cima-tutor-api
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # User will input this in dashboard
+      - key: PORT
+        value: 10000
+
+  # Frontend Service
+  - type: static
+    name: cima-tutor-web
+    rootDir: client
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: cima-tutor-api
+          property: url

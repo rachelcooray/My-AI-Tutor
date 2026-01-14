@@ -28,7 +28,8 @@ export default function FileUpload({ onUploadComplete }) {
         formData.append('file', file);
 
         try {
-            const res = await axios.post('http://localhost:3000/api/upload', formData, {
+            const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+            const res = await axios.post(`${baseUrl}/api/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
