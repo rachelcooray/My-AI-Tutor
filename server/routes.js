@@ -73,7 +73,7 @@ router.post('/chat', async (req, res) => {
         res.json({ response });
     } catch (error) {
         console.error('Chat error:', error);
-        res.status(500).json({ error: 'Failed to generate response' });
+        res.status(500).json({ error: error.message || 'Failed to generate response' });
     }
 });
 

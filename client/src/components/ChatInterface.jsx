@@ -48,7 +48,8 @@ export default function ChatInterface({ subject, mode }) {
             setMessages(prev => [...prev, aiMsg]);
         } catch (err) {
             console.error(err);
-            setMessages(prev => [...prev, { role: 'ai', content: "Sorry, I encountered an error processing your request." }]);
+            const msg = err.response?.data?.error || err.message || "Unknown error";
+            setMessages(prev => [...prev, { role: 'ai', content: `**Error:** ${msg} (Target: ${api.defaults.baseURL})` }]);
         } finally {
             setIsLoading(false);
         }
