@@ -20,8 +20,6 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
+    envVars:
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: cima-tutor-api
-          property: host
+        value: https://cima-tutor-api.onrender.com
