@@ -38,8 +38,7 @@ export default function ChatInterface({ subject, mode }) {
         setIsLoading(true);
 
         try {
-            const baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-            const res = await axios.post(`${baseUrl}/api/chat`, {
+            const res = await api.post('/api/chat', {
                 message: userMsg.content,
                 subject,
                 mode
